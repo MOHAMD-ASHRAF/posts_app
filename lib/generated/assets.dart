@@ -4,8 +4,14 @@ class Assets {
 
   static const String coreAppTheme = 'lib/core/app_theme.dart';
   static const String entitiesEntity = 'lib/features/posts/domain/entities/entity.dart';
+  static const String errorExceptions = 'lib/core/error/exceptions.dart';
+  static const String errorFailure = 'lib/core/error/failure.dart';
   static const String generatedAssets = 'lib/generated/assets.dart';
   static const String libMain = 'lib/main.dart';
   static const String repositoriesPostRepository = 'lib/features/posts/domain/repositories/post_repository.dart';
+  static const String usecasesAddPost = 'lib/features/posts/domain/usecases/add_post.dart';
+  static const String usecasesDeletePost = 'lib/features/posts/domain/usecases/delete_post.dart';
+  static const String usecasesGetAllPosts = 'lib/features/posts/domain/usecases/get_all_posts.dart';
+  static const String usecasesUpdatePost = 'lib/features/posts/domain/usecases/update_post.dart';
 
 }

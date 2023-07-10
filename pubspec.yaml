@@ -54,5 +54,6 @@ flutter:
     - lib/features/posts/presntation/widgets/
     - lib/features/posts/domain/
     - lib/features/posts/domain/entities/
+    - lib/core/error/
 
 
