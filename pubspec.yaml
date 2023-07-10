@@ -49,10 +49,10 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - lib/features/posts/presntain/
-    - lib/features/posts/presntain/bloc/
-    - lib/features/posts/presntain/widgets/
+    - lib/features/posts/presntation/
+    - lib/features/posts/presntation/bloc/
+    - lib/features/posts/presntation/widgets/
     - lib/features/posts/domain/
-    - lib/features/posts/domain/entites/
+    - lib/features/posts/domain/entities/
 
 

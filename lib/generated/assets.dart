@@ -3,7 +3,9 @@ class Assets {
   Assets._();
 
   static const String coreAppTheme = 'lib/core/app_theme.dart';
+  static const String entitiesEntity = 'lib/features/posts/domain/entities/entity.dart';
   static const String generatedAssets = 'lib/generated/assets.dart';
   static const String libMain = 'lib/main.dart';
+  static const String repositoriesPostRepository = 'lib/features/posts/domain/repositories/post_repository.dart';
 
 }
