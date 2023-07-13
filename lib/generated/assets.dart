@@ -3,12 +3,17 @@ class Assets {
   Assets._();
 
   static const String coreAppTheme = 'lib/core/app_theme.dart';
+  static const String datasourceLocalDataSource = 'lib/features/posts/data/datasource/local_data_source.dart';
+  static const String datasourceRemoteDataSource = 'lib/features/posts/data/datasource/remote_data_source.dart';
   static const String entitiesEntity = 'lib/features/posts/domain/entities/entity.dart';
   static const String errorExceptions = 'lib/core/error/exceptions.dart';
   static const String errorFailure = 'lib/core/error/failure.dart';
   static const String generatedAssets = 'lib/generated/assets.dart';
   static const String libMain = 'lib/main.dart';
+  static const String modelsPostModel = 'lib/features/posts/data/models/post_model.dart';
+  static const String networkNetworkInfo = 'lib/core/network/network_info.dart';
   static const String repositoriesPostRepository = 'lib/features/posts/domain/repositories/post_repository.dart';
+  static const String repositoriesPostRepositoryImpl = 'lib/features/posts/data/repositories/post_repository_impl.dart';
   static const String usecasesAddPost = 'lib/features/posts/domain/usecases/add_post.dart';
   static const String usecasesDeletePost = 'lib/features/posts/domain/usecases/delete_post.dart';
   static const String usecasesGetAllPosts = 'lib/features/posts/domain/usecases/get_all_posts.dart';
