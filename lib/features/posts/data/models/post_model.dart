@@ -8,7 +8,7 @@ class PostModel extends Post {
     return PostModel(id: json['id'], title: json['title'], body: json['body']);
   }
 
-  Map<String, dynamic> toJson(){
+  Map<String, dynamic> toJson() {
     return {
       'id': id,
       'title': title,

@@ -1,7 +1,11 @@
-import 'package:dartz/dartz.dart';
-import 'package:posts_app/features/posts/data/models/post_model.dart';
+import 'dart:convert';
 
-abstract class RemoteDataSource{
+import 'package:dartz/dartz.dart';
+import 'package:posts_app/core/error/exceptions.dart';
+import 'package:posts_app/features/posts/data/models/post_model.dart';
+import 'package:http/http.dart' as http;
+
+abstract class RemoteDataSource {
   Future<List<PostModel>> getAllPosts();
 
   Future<Unit> deletePost(int postId);
@@ -11,28 +15,67 @@ abstract class RemoteDataSource{
   Future<Unit> addPost(PostModel postModel);
 }
 
-class RemotDataSourceImpl implements RemoteDataSource{
+const baseUrl = "https://jsonplaceholder.typicode.com";
+
+class RemoteDataSourceImpl implements RemoteDataSource {
+  final http.Client client;
+
+  RemoteDataSourceImpl({required this.client});
+
+
   @override
-  Future<Unit> addPost(PostModel postModel) {
-    // TODO: implement addPost
-    throw UnimplementedError();
+  Future<List<PostModel>> getAllPosts() async {
+    final response = await client.get(Uri.parse('$baseUrl/posts'),
+        headers: {"Content-Type": "application/json"});
+    if (response.statusCode == 200) {
+      final List decodeJson = await json.decode(response.body) as List;
+      final List<PostModel> postModels = decodeJson.map<PostModel>((e) =>
+          PostModel.fromJson(e))
+          .toList();
+      return postModels;
+    } else {
+      throw ServerException();
+    }
+  }
+
+
+  @override
+  Future<Unit> addPost(PostModel postModel) async{
+    final body = {
+      'tittle': postModel.title,
+      'body': postModel.body,
+    };
+    final response = await client.post(Uri.parse('$baseUrl/post/'),body: body);
+    if(response.statusCode == 201){
+  return Future.value(unit);
+    }else{
+      throw ServerException();
+    }
   }
 
   @override
-  Future<Unit> deletePost(int postId) {
-    // TODO: implement deletePost
-    throw UnimplementedError();
-  }
-  @override
-  Future<List<PostModel>> getAllPosts() {
-    // TODO: implement getAllPosts
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<Unit> updatePost(PostModel postModel) {
-    // TODO: implement updatePost
-    throw UnimplementedError();
+  Future<Unit> deletePost(int postId) async{
+    final response = await client.delete(Uri.parse('/post/${postId.toString()}'),
+        headers: {"Content-Type": "application/json"});
+    if(response.statusCode == 200){
+      return Future.value(unit);
+    }else{
+      throw ServerException();
+    }
   }
 
+  @override
+  Future<Unit> updatePost(PostModel postModel)async {
+    final postId = postModel.id.toString();
+    final body = {
+      'tittle': postModel.title,
+      'body': postModel.body,
+    };
+    final response = await client.patch(Uri.parse('$baseUrl/post/$postId'),body: body);
+    if(response.statusCode == 200){
+      return Future.value(unit);
+    }else{
+      throw ServerException();
+    }
+  }
 }
