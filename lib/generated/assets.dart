@@ -12,6 +12,7 @@ class Assets {
   static const String errorExceptions = 'lib/core/error/exceptions.dart';
   static const String errorFailure = 'lib/core/error/failure.dart';
   static const String generatedAssets = 'lib/generated/assets.dart';
+  static const String libInjectionContainer = 'lib/injection_container.dart';
   static const String libMain = 'lib/main.dart';
   static const String modelsPostModel = 'lib/features/posts/data/models/post_model.dart';
   static const String networkNetworkInfo = 'lib/core/network/network_info.dart';

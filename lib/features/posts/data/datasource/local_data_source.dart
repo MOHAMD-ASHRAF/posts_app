@@ -5,16 +5,16 @@ import 'package:posts_app/core/error/exceptions.dart';
 import 'package:posts_app/features/posts/data/models/post_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-abstract class LocalDataSource {
+abstract class PostLocalDataSource {
   Future<Unit> cachePosts(List<PostModel> postModel);
 
   Future<List<PostModel>> getCachePosts();
 }
 const cachedPost = "CACHED_POSTS";
-class LocalDataSourceImpl implements LocalDataSource {
+class PostLocalDataSourceImpl implements PostLocalDataSource {
   final SharedPreferences sharedPreferences;
 
-  LocalDataSourceImpl({required this.sharedPreferences});
+  PostLocalDataSourceImpl({required this.sharedPreferences});
 
   @override
   Future<Unit> cachePosts(List<PostModel> postModels) {

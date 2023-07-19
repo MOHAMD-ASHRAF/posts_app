@@ -10,8 +10,8 @@ import 'package:posts_app/features/posts/domain/repositories/post_repository.dar
 
 typedef DeleteOrUpdateOrAddPost = Future<Unit> Function();
 class PostsRepositoryImpl implements PostsRepository {
-  final RemoteDataSource remoteDataSource;
-  final LocalDataSource localDataSource;
+  final PostRemoteDataSource remoteDataSource;
+  final PostLocalDataSource localDataSource;
   final NetworkInfo networkInfo;
 
   PostsRepositoryImpl(

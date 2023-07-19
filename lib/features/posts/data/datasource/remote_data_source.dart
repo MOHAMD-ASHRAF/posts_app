@@ -5,7 +5,7 @@ import 'package:posts_app/core/error/exceptions.dart';
 import 'package:posts_app/features/posts/data/models/post_model.dart';
 import 'package:http/http.dart' as http;
 
-abstract class RemoteDataSource {
+abstract class PostRemoteDataSource {
   Future<List<PostModel>> getAllPosts();
 
   Future<Unit> deletePost(int postId);
@@ -17,10 +17,10 @@ abstract class RemoteDataSource {
 
 const baseUrl = "https://jsonplaceholder.typicode.com";
 
-class RemoteDataSourceImpl implements RemoteDataSource {
+class PostRemoteDataSourceImpl implements PostRemoteDataSource {
   final http.Client client;
 
-  RemoteDataSourceImpl({required this.client});
+  PostRemoteDataSourceImpl({required this.client});
 
 
   @override
