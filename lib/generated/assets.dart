@@ -16,6 +16,7 @@ class Assets {
   static const String libMain = 'lib/main.dart';
   static const String modelsPostModel = 'lib/features/posts/data/models/post_model.dart';
   static const String networkNetworkInfo = 'lib/core/network/network_info.dart';
+  static const String pagesPostsPage = 'lib/features/posts/presntation/pages/posts_page.dart';
   static const String postsPostsBloc = 'lib/features/posts/presntation/bloc/posts/posts_bloc.dart';
   static const String postsPostsEvent = 'lib/features/posts/presntation/bloc/posts/posts_event.dart';
   static const String postsPostsState = 'lib/features/posts/presntation/bloc/posts/posts_state.dart';
@@ -27,5 +28,8 @@ class Assets {
   static const String usecasesDeletePost = 'lib/features/posts/domain/usecases/delete_post.dart';
   static const String usecasesGetAllPosts = 'lib/features/posts/domain/usecases/get_all_posts.dart';
   static const String usecasesUpdatePost = 'lib/features/posts/domain/usecases/update_post.dart';
+  static const String widgetLoadingWidget = 'lib/core/widget/loading_widget.dart';
+  static const String widgetsMessageDisplyWidget = 'lib/features/posts/presntation/widgets/message_disply_widget.dart';
+  static const String widgetsPostListWidget = 'lib/features/posts/presntation/widgets/post_list_widget.dart';
 
 }
