@@ -9,6 +9,7 @@ import 'package:posts_app/features/posts/domain/entities/entity.dart';
 import 'package:posts_app/features/posts/domain/repositories/post_repository.dart';
 
 typedef DeleteOrUpdateOrAddPost = Future<Unit> Function();
+
 class PostsRepositoryImpl implements PostsRepository {
   final PostRemoteDataSource remoteDataSource;
   final PostLocalDataSource localDataSource;
@@ -42,7 +43,7 @@ class PostsRepositoryImpl implements PostsRepository {
   @override
   Future<Either<Failure, Unit>> addPosts(Post post) async {
     final PostModel postModel =
-        PostModel(id: post.id, title: post.title, body: post.body);
+        PostModel(title: post.title, body: post.body);
     return await _getMessage(() {
       return remoteDataSource.addPost(postModel);
     });

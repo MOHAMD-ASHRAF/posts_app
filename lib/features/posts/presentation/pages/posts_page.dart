@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:posts_app/core/widget/loading_widget.dart';
 import 'package:posts_app/features/posts/presentation/bloc/posts/posts_bloc.dart';
+import 'package:posts_app/features/posts/presentation/pages/post_add_update_page.dart';
 import 'package:posts_app/features/posts/presentation/widgets/message_disply_widget.dart';
 import 'package:posts_app/features/posts/presentation/widgets/post_list_widget.dart';
 
@@ -13,7 +14,7 @@ class PostsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('posts app')),
-      body:  _buildBody(),floatingActionButton: _buildFloatingBtn(),);
+      body:  _buildBody(),floatingActionButton: _buildFloatingBtn(context),);
   }
   Widget _buildBody(){
     return Padding(
@@ -39,9 +40,11 @@ class PostsPage extends StatelessWidget {
  Future<void> _onRefresh(BuildContext context)async{
     BlocProvider.of<PostsBloc>(context).add(RefreshPostsEvent());
   }
-  Widget _buildFloatingBtn() {
+  Widget _buildFloatingBtn(BuildContext context) {
     return FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (_)=>PostAddUpdatePage(isUpdatePost: false,)));
+        },
     child: Icon(Icons.add),
     );
   }

@@ -42,7 +42,7 @@ class PostRemoteDataSourceImpl implements PostRemoteDataSource {
   @override
   Future<Unit> addPost(PostModel postModel) async{
     final body = {
-      'tittle': postModel.title,
+      'title': postModel.title,
       'body': postModel.body,
     };
     final response = await client.post(Uri.parse('$baseUrl/post/'),body: body);
@@ -56,7 +56,8 @@ class PostRemoteDataSourceImpl implements PostRemoteDataSource {
   @override
   Future<Unit> deletePost(int postId) async{
     final response = await client.delete(Uri.parse('/post/${postId.toString()}'),
-        headers: {"Content-Type": "application/json"});
+        headers:
+        {"Content-Type": "application/json"});
     if(response.statusCode == 200){
       return Future.value(unit);
     }else{
@@ -68,7 +69,7 @@ class PostRemoteDataSourceImpl implements PostRemoteDataSource {
   Future<Unit> updatePost(PostModel postModel)async {
     final postId = postModel.id.toString();
     final body = {
-      'tittle': postModel.title,
+      'title': postModel.title,
       'body': postModel.body,
     };
     final response = await client.patch(Uri.parse('$baseUrl/post/$postId'),body: body);
